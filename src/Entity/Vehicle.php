@@ -9,19 +9,13 @@ use KikiCourier\ValueObjects\Speed;
 
 final class Vehicle
 {
-    private string $id;
-    private Weight $maxWeight;
-    private Speed $speed;
     private float $availableAt;
 
-    public function __construct(string $id, Weight $maxWeight, Speed $speed)
+    public function __construct(private string $id, private Weight $maxWeight, private Speed $speed)
     {
         if (empty($id)) {
             throw new \InvalidArgumentException('Vehicle ID cannot be empty');
         }
-        $this->id = $id;
-        $this->maxWeight = $maxWeight;
-        $this->speed = $speed;
         $this->availableAt = 0.0;
     }
 

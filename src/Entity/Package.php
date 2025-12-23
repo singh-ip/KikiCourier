@@ -11,25 +11,19 @@ use KikiCourier\ValueObjects\Money;
 
 final class Package
 {
-    private PackageId $id;
-    private Weight $weight;
-    private Distance $distance;
-    private string $offerCode;
-    private ?Money $discount = null;
-    private ?Money $totalCost = null;
-    private ?float $estimatedDeliveryTime = null;
+	private string $offerCode;
+	private ?Money $discount = null;
+	private ?Money $totalCost = null;
+	private ?float $estimatedDeliveryTime = null;
 
-    public function __construct(
-        PackageId $id,
-        Weight $weight,
-        Distance $distance,
-        string $offerCode = ''
-    ) {
-        $this->id = $id;
-        $this->weight = $weight;
-        $this->distance = $distance;
-        $this->offerCode = trim(strtoupper($offerCode));
-    }
+	public function __construct(
+		private PackageId $id,
+		private Weight $weight,
+		private Distance $distance,
+		string $offerCode = ''
+	) {
+		$this->offerCode = trim(strtoupper($offerCode));
+	}
 
     public function getId(): PackageId
     {

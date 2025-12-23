@@ -6,16 +6,12 @@ namespace KikiCourier\ValueObjects;
 
 final class Weight
 {
-    private float $kilograms;
-
-    public function __construct(float $kilograms)
-    {
-        if ($kilograms < 0) {
-            throw new \InvalidArgumentException('Weight cannot be negative');
-        }
-        
-        $this->kilograms = $kilograms;
-    }
+	public function __construct(private float $kilograms)
+	{
+		if ($kilograms < 0) {
+			throw new \InvalidArgumentException('Weight cannot be negative');
+		}
+	}
 
     public function getKilograms(): float
     {

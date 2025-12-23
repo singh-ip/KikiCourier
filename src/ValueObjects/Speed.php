@@ -6,16 +6,12 @@ namespace KikiCourier\ValueObjects;
 
 final class Speed
 {
-    private float $kmPerHour;
-
-    public function __construct(float $kmPerHour)
-    {
-        if ($kmPerHour <= 0) {
-            throw new \InvalidArgumentException('Speed must be positive');
-        }
-        
-        $this->kmPerHour = $kmPerHour;
-    }
+	public function __construct(private float $kmPerHour)
+	{
+		if ($kmPerHour <= 0) {
+			throw new \InvalidArgumentException('Speed must be positive');
+		}
+	}
 
     public function getKmPerHour(): float
     {

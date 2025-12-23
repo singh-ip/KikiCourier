@@ -6,9 +6,7 @@ namespace KikiCourier\ValueObjects;
 
 final class PackageId
 {
-    private string $id;
-
-    public function __construct(string $id)
+    public function __construct(private string $id)
     {
         if (empty(trim($id))) {
             throw new \InvalidArgumentException('Package ID cannot be empty');

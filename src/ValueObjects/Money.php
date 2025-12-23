@@ -6,9 +6,7 @@ namespace KikiCourier\ValueObjects;
 
 final class Money
 {
-    private float $amount;
-
-    public function __construct(float $amount)
+    public function __construct(private float $amount)
     {
         if ($amount < 0) {
             throw new \InvalidArgumentException('Amount cannot be negative');
