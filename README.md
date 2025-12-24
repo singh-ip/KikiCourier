@@ -14,6 +14,16 @@ services (`DeliveryCostCalculator`, `OfferService`, `ShipmentPlanner`,
 and the `bin/courier` entrypoint.
 
 
+Application flow
+-----------------
+
+The following diagram shows how the main pieces of the system fit together,
+from the `bin/courier` entrypoint through parsers, services, and schedulers
+down to the final CLI output:
+
+![KikiCourier application flow](ProjectFlowDiagram.png)
+
+
 Running the tests
 -----------------
 
