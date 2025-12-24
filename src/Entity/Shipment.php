@@ -22,6 +22,22 @@ final class Shipment
         $this->totalWeight = $this->totalWeight->add($package->getWeight());
     }
 
+    public function removeLastPackage(): void
+    {
+        $removed = array_pop($this->packages);
+
+        if ($removed === null) {
+            return;
+        }
+
+        $total = 0.0;
+        foreach ($this->packages as $package) {
+            $total += $package->getWeight()->getKilograms();
+        }
+
+        $this->totalWeight = new Weight($total);
+    }
+
     public function getPackages(): array
     {
         return $this->packages;
